@@ -4,9 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E5E5E5;
+    background-color: #F8F8F8;
+    background-size: 100vh 100vw;
     button
-        margin-top: 32px;
+        margin-top: 50px;
         width: 148px;
         height: 50px;
         font-family: Nunito-Regular;
@@ -19,9 +20,60 @@
         border: none;
         padding: 12px 16px;
         cursor: pointer;
-    .user-title
-        
+    .users-title
+        h1
+            text-align: center;
+            font-family: Nunito-Regular;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.87);
+        h2
+            text-align: center;
+            font-family: Nunito-Regular;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 28px;
+            color: rgba(0, 0, 0, 0.87);
     .users-catalog
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 32%);
+        grid-gap: 30px;
+        .users-catalog-user
+            width: 370px;
+            height: 313px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img
+                border-radius: 50%;
+                margin-top: 36px;
+            h2
+                width: 310px;
+                margin-bottom: 0;
+                font-family: Nunito-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 22px;
+                line-height: 28px;
+                text-align: center;
+                word-wrap: break-word;
+                color: rgba(0, 0, 0, 0.87);
+
+            div
+                width: 310px;
+                font-family: Nunito-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 26px;
+                text-align: center;
+                word-wrap: break-word;
+                color: rgba(0, 0, 0, 0.87);
+
         

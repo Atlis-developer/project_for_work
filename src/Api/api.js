@@ -12,4 +12,13 @@ export const usersAPI = {
                 return response
             })
     }
+};
+
+export const formAPI = {
+    getPosition(){
+        return instanse.get(`positions`).
+            then(response => {
+                return response
+            })
+    }
 }
