@@ -1,13 +1,16 @@
 import { formAPI } from "../Api/api";
 
-export const setPosition = (position) =>({ type: 'userSeach-reducer/SET-POSITION', position: position})
+export const setPosition = (position) =>({ type: 'userSeach-reducer/SET-POSITION', position: position});
+
 
 
 const SET_POSITION = 'userSeach-reducer/SET-POSITION'
 
 
+
 let defaultState = {
-    position: [ ]
+    position: [ ],
+    
 }
 
 export const formReducer = (state = defaultState, action) => {
@@ -18,7 +21,7 @@ export const formReducer = (state = defaultState, action) => {
                 ...state,
                 position: [...state.position, ...action.position]
             }
-        };
+        };  
         default:
             return state;
     }
@@ -29,3 +32,4 @@ export const formThunkCreator = () => async (dispatch) =>{
 
         dispatch(setPosition(response.data.positions));
 }
+

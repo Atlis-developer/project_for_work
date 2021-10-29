@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Form.sass';
 import { Form, Field } from "react-final-form";
+import { Modal } from '../Modal/Modal';
 
 
 export const Forms = (props) => {
-
+  const [modal, setModal] = useState (true)
     const onSubmit =(values) => {
-        console.log(values)
+
+      props.setUserThunk(values)
       }
 
       const required = (value) => (value ? undefined : "Field must be filled");
@@ -15,7 +17,7 @@ export const Forms = (props) => {
         validators.reduce((error, validator) => error || validator(value), undefined);
 
     return (
-        <div className='form'>
+        <div id='form'>
             <div className='form-title'>
                 <h1>Register to get a work</h1>
                 <h2>Your personal data is stored according to the Privacy Policy</h2>
@@ -43,7 +45,7 @@ export const Forms = (props) => {
             </Field>
             <Field
               name="phone"
-              validate={composeValidators(required, mustBeNumber)}
+              validate={composeValidators(required)}
             >
               {({ input, meta }) => (
                 <div className='input-box'>
@@ -52,9 +54,9 @@ export const Forms = (props) => {
                 </div>
               )}
             </Field>
-            <span>
+            <div className='form-position'>
             Select your position
-            </span>
+            </div>
                 {props.position.map(u=>
                     <label>
                   <Field
@@ -62,7 +64,7 @@ export const Forms = (props) => {
                     component="input"
                     type="radio"
                     value={u.name}
-                  />{" "}
+                  />
                   {u.name}
                 </label>
                     )}
@@ -78,12 +80,13 @@ export const Forms = (props) => {
             </label>
             <div className='button'>
               <button className={pristine ? 'close': 'open'} type="submit" disabled={submitting || pristine}>
-                Submit
+              Sign up
               </button>
             </div>
           </form>
         )}
       />
+      {modal && <Modal />}
             </div>
         </div>
     )

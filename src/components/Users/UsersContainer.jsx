@@ -18,7 +18,9 @@ const UsersContainer = (props) => {
                   pageSize={props.pageSize}
                   addUsers={props.addUsers}
                   allPages={props.allPages}
-                  users={props.users}/>
+                  users={props.users}
+                  token={props.token}
+                  />
 }
 
 
@@ -29,6 +31,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         users: state.usersPage.users,
         allPages: state.usersPage.allPages,
+        token: state.usersPage.token,
         state: state.usersPage
     }
 }

@@ -9,11 +9,11 @@ export const Header = () =>{
                 <img src={Logo} alt='logo'/>
             </div>
             <div className='header-nav'>
-                <a href="">About me</a>
-                <a href="">Relationships</a>
-                <a href="">Requirements</a>
-                <a href="">Users</a>
-                <a href="">Sign Up</a>
+                <a href="#form">About me</a>
+                <a href="#form">Relationships</a>
+                <a href="#form">Requirements</a>
+                <a href="#form">Users</a>
+                <a href="#form">Sign Up</a>
             </div>
 
         </div>

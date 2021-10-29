@@ -11,8 +11,8 @@ export const Users = (props) => {
     }
 
     let usersArray = props.users.sort((a, b) => parseFloat(a.registration_timestamp) - parseFloat(b.registration_timestamp));
-    console.log(usersArray)
-
+    console.log(props.token)
+    
     return (
         <div className='users'>
             <div className='users-title'>
