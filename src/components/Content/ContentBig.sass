@@ -1,7 +1,8 @@
 .content-big
     width: 1170px;
     background-image: url(../../images/Banner_photo.jpg);
-    background-size: 1235px 650px;
+    background-position-x: 50%;
+    background-size: 119%;
     background-repeat: no-repeat;
     padding: 185px 0;
     h1
@@ -35,3 +36,22 @@
             border: none;
             padding: 12px 16px;
             cursor: pointer;
+
+@media (max-width: 1200px) 
+    .content-big
+        width: 900px;
+        background-size: 155%;
+
+@media (max-width: 970px)
+    .content-big
+        width: 700px;
+        background-position-x: 48%;
+        h1
+            margin-top: -106px;
+            width: 400px;          
+        p
+            width: 400px;
+            margin-top: 15px;
+        a
+            button
+                 margin-top: 37px;

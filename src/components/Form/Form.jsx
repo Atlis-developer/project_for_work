@@ -18,11 +18,13 @@ export const Forms = (props) => {
 
     return (
         <div id='form'>
+          {modal && <Modal setModal={setModal}/>}
             <div className='form-title'>
                 <h1>Register to get a work</h1>
                 <h2>Your personal data is stored according to the Privacy Policy</h2>
             </div>
             <div className='form-table'>
+              
             <Form
         onSubmit={onSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -86,7 +88,7 @@ export const Forms = (props) => {
           </form>
         )}
       />
-      {modal && <Modal />}
+      
             </div>
         </div>
     )

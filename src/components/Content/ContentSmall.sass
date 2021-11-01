@@ -1,10 +1,16 @@
-
 .content-small
     width: 1170px;
     padding-top: 180px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    .content-small-img
+        .PeopleL
+            display: block;
+        .PeopleM
+            display: none;
+        .PeopleS
+            display: none;
     .content-small-txt
         width: 680px;
         text-align: right;
@@ -42,3 +48,27 @@
                 cursor: pointer;
                 margin-right: 0;
 
+@media (max-width: 1200px) 
+    .content-small
+        width: 900px;
+        padding-top: 175px;
+        .content-small-txt
+            h1
+                margin-top: 14px;
+
+@media (max-width: 970px)
+    .content-small
+        width: 700px;
+        padding-top: 60px;
+        .content-small-img
+            .PeopleL
+                display: none;
+            .PeopleS
+                display: block;
+                margin-top: 62px;
+        .content-small-txt
+            width: 365px;
+            h1
+                margin-top: 11px;
+            h2
+                margin-top: -17px;

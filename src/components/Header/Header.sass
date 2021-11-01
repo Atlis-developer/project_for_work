@@ -1,27 +1,85 @@
 .header 
     width: 1170px;
     background-color: white;
-    display: flex;
-    height: 60px;
-    justify-content: space-between;
-    align-items: center;
-    .header-nav
-        width: 489px;
+    .header-laptop
         display: flex;
+        height: 60px;
         justify-content: space-between;
         align-items: center;
-        a
-            font-family: Nunito-Regular;
-            font-size: 16px;
-            color: black;
-            text-decoration: none;
-            font-weight: normal;
-            line-height: 26px;
-        a:visited
-            color: #00BDD3;
-        a:hover
-            color: #00BDD3;
-            background: rgba(0, 189, 211, 0.1);
-            border-radius: 4px;
-            padding: 7px 16px;
+        .header-nav
+            width: 489px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            a
+                font-family: Nunito-Regular;
+                font-size: 16px;
+                color: black;
+                text-decoration: none;
+                font-weight: normal;
+                line-height: 26px;
+            a:visited
+                color: #00BDD3;
+            a:hover
+                color: #00BDD3;
+                background: rgba(0, 189, 211, 0.1);
+                border-radius: 4px;
+                padding: 7px 16px;
+    .header-mobile
+        display: none;
+        height: 60px;
 
+        .header-logo
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 700px;
+            .burger
+                cursor: pointer;
+                display: block;
+            .logo
+                display: block;
+        .header-menu
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0, .5);
+            
+         
+            .menu
+                margin-top: 60px;    
+                display: flex;
+                flex-direction: column;
+                background-color: #FFFFFF;
+                height: 100vh;
+                width: 270px;
+                div
+                    display: flex;
+                    flex-direction: column;
+                    border: 0.5px solid #E0E0E0;
+                    a
+                        text-decoration: none;
+                        font-family: Nunito-Regular;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 26px;
+                        color: #000000;
+                        margin-left: 16px;
+                        margin-top: 22px;
+                    
+
+
+
+
+@media (max-width: 1200px) 
+    .header
+        width: 900px;
+
+@media (max-width: 970px)
+    .header
+        width: 700px;
+        .header-laptop
+            display: none;
+        .header-mobile
+            display: flex;

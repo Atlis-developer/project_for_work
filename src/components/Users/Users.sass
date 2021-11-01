@@ -80,4 +80,20 @@
                 color: rgba(0, 0, 0, 0.87);
                 margin-top: 6px;
 
-        
+@media (max-width: 1200px) 
+    .users
+        width: 900px;
+        .users-catalog
+            .users-catalog-user
+                width: 282px;
+
+@media (max-width: 970px)
+    .users
+        width: 700px;
+        .users-title
+            margin-top: 149px;
+        .users-catalog
+            grid-template-columns: repeat(2, 50%);
+            grid-gap: 16px;
+            .users-catalog-user
+                width: 344px;

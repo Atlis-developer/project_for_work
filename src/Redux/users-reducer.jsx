@@ -14,6 +14,7 @@ const ADD_TOKEN = 'userSeach-reducer/ADD-TOKEN';
 let defaultState = {
     users: [ ],
     pageSize: 9,
+    pageSizeSmall: 6,
     allPages: null,
     token: null
 }
@@ -48,8 +49,6 @@ export const userThunkCreator = (numberPage, pageSize) => async (dispatch) =>{
     let response1 = await usersAPI.getUsers(numberPage, pageSize)
         dispatch(setUsers(response1.data.users));
         dispatch(totalPage(response1.data.total_pages));
-    let response2 = await usersAPI.getToken();
-        dispatch(addToken(response2.data.token));
 }
 
 export const addUsers = (numberPage, pageSize) => async (dispatch) =>{
@@ -62,11 +61,10 @@ export const addUsers = (numberPage, pageSize) => async (dispatch) =>{
 
 
 export const setUserThunk = (user) => async (dispatch, getState) =>{
-
-
     let response2 = await usersAPI.getToken();
-    debugger
     let response = await usersAPI.setUser(user, response2.data.token);
-    debugger    
+    dispatch(setUsers(response.data.users));
+    dispatch(totalPage(response.data.total_pages));
+
     
 }

@@ -1,12 +1,16 @@
 import React from 'react';
 import './ContentSmall.sass';
-import People from '../../images/Image-387x340.svg'
+import PeopleL from '../../images/Image-387x340.svg'
+import PeopleM from '../../images/Image-328x287.svg'
+import PeopleS from '../../images/Image-296x260.svg'
 
 export const ContentSmall = () => {
     return (
         <div className='content-small'>
             <div className='content-small-img'>
-                <img src={People} />
+                <img src={PeopleL} className='PeopleL'/>
+                <img src={PeopleM} className='PeopleM'/>
+                <img src={PeopleS} className='PeopleS'/>
             </div>
             <div className='content-small-txt'>
                 <h1>

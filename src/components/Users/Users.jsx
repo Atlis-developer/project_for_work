@@ -13,6 +13,8 @@ export const Users = (props) => {
     let usersArray = props.users.sort((a, b) => parseFloat(a.registration_timestamp) - parseFloat(b.registration_timestamp));
     console.log(props.token)
     
+    
+
     return (
         <div className='users'>
             <div className='users-title'>
@@ -20,7 +22,7 @@ export const Users = (props) => {
                 <h2>The best specialists are shown below</h2>
             </div>
             <div className='users-catalog'>
-            {props.users.map(u => 
+            {usersArray.map(u => 
                 <div className='users-catalog-user'>
                     <img src={u.photo} key={u.id}/>
                     <h2>{u.name}</h2>
