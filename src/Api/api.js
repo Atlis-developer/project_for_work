@@ -20,26 +20,30 @@ export const usersAPI = {
             })
     },
     setUser(user, token){
+        
         const formData = new FormData();
-        formData.append('position_id', 2);
+        formData.append('position_id', user.position);
         formData.append('name', user.name);
         formData.append('email', user.email);
         formData.append('phone', user.phone);
-        formData.append('photo', user.photo)
-
-        return instanse.post(`users`, 
-        {
-            body: formData,
-            headers: {
-                'Token': token
-              }
-        }).
-            then(response => {
-
-                return response
+        formData.append('photo', user.photo);
+        debugger
+        axios({
+            method: "post",
+            url: "https://frontend-test-assignment-api.abz.agency/api/v1/users'",
+            data: formData,
+            headers: { "Token": token },
+          })
+            .then(function (response) {
+              //handle success
+              console.log(response);
             })
-    }
-};
+            .catch(function (response) {
+              //handle error
+              console.log(response);
+            });
+    },
+}
 
 export const formAPI = {
     getPosition(){
@@ -49,7 +53,15 @@ export const formAPI = {
             })
     },
 }
-
+/*const formData = new FormData();
+        formData.append('position_id', user.position);
+        formData.append('name', user.name);
+        formData.append('email', user.email);
+        formData.append('phone', user.phone);
+        formData.append('photo', user.photo)
+        fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token,}})
+        .then(function(response) { return response.json() }) 
+        .then(function(data) { console.log(data)})*/
 
 /*```js var formData = new FormData(); 
 // file from input type='file' var fileField = document.querySelector('input[type="file"]'); 
@@ -58,7 +70,8 @@ formData.append('name', 'Jhon');
 formData.append('email', 'Jhon@gmail.com'); 
 formData.append('phone', '+380955388485'); 
 formData.append('photo', fileField.files[0]);
-fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token, // get token with GET api/v1/token method }, }) 
+
+fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token, }, }) 
 .then(function(response) { return response.json(); }) 
 .then(function(data) { console.log(data); 
 if(data.success) { // process success response } 

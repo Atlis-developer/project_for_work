@@ -10,7 +10,7 @@ export const Users = (props) => {
         props.setNumberPage(prev => prev + 1);
     }
 
-    let usersArray = props.users.sort((a, b) => parseFloat(a.registration_timestamp) - parseFloat(b.registration_timestamp));
+    let usersArray = props.users.sort((a, b) => parseFloat(b.registration_timestamp) - parseFloat(a.registration_timestamp));
     console.log(props.token)
     
     
