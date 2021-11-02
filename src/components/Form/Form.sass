@@ -28,11 +28,14 @@
     .form-table
         form
             margin: 14px auto;
-
         .input-box
             display: flex;
             flex-flow: column nowrap;
             line-height: 2em;
+            .error
+                border: 2px solid #CB3D40;
+                box-sizing: border-box;
+                border-radius: 4px;
             span
                 margin-top: -50px;
                 font-family: Asap-Regular;
@@ -145,6 +148,15 @@
     #form
         width: 700px;
         
-
+@media (max-width: 760px)
+    #form
+        width: 328px;
+        .form-title
+            h1
+                width: 290px;
+                margin: 0 auto;
+        .form-table
+            input
+                width: 328px;
         
            

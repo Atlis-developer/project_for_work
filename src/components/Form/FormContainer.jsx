@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { formThunkCreator } from '../../Redux/form-reducer'
 import { Forms } from './Form';
-import { setUserThunk } from '../../Redux/users-reducer'
+import { setUserThunk, changeModal } from '../../Redux/users-reducer'
+
 
 const FormContainer = (props) => {
 
@@ -11,7 +12,11 @@ const FormContainer = (props) => {
     }, [])
 
     return <Forms position={props.position}
-                  setUserThunk={props.setUserThunk}/>
+                  setUserThunk={props.setUserThunk}
+                  error={props.error}
+                  modal={props.modal}
+                  changeModal={props.changeModal}
+                  />
 }
 
 
@@ -20,7 +25,8 @@ const FormContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         position: state.formPage.position,
-
+        error: state.usersPage.messageError,
+        modal: state.usersPage.modal,
     }
 }
-export default connect(mapStateToProps, { formThunkCreator, setUserThunk })(FormContainer)
+export default connect(mapStateToProps, { formThunkCreator, setUserThunk, changeModal })(FormContainer)

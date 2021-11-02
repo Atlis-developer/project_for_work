@@ -8,7 +8,7 @@ export const Modal = (props) => {
             <div className='modal-body'>
                 <h3>Congratulations</h3>
                 <div>You have successfully passed the registration </div>
-                <button onClick={()=>props.setModal(false)}>Great</button>
+                <button onClick={()=>props.changeModal(false)}>Great</button>
             </div>
         </div>
     )

@@ -5,20 +5,22 @@ import { Modal } from '../Modal/Modal';
 
 
 export const Forms = (props) => {
-  const [modal, setModal] = useState (true)
-    const onSubmit =(values) => {
 
-      props.setUserThunk(values)
+  
+
+    const onSubmit =(values) => {
+        let needId = props.position.find(i=> i.name == values.position);
+        values.position = needId.id;
+        props.setUserThunk(values)
       }
 
       const required = (value) => (value ? undefined : "Field must be filled");
-      const mustBeNumber = (value) => (isNaN(value) ? "Must be a number" : undefined);
       const composeValidators = (...validators) => (value) =>
         validators.reduce((error, validator) => error || validator(value), undefined);
 
     return (
         <div id='form'>
-          {modal && <Modal setModal={setModal}/>}
+          {props.modal && <Modal changeModal={props.changeModal}/>}
             <div className='form-title'>
                 <h1>Register to get a work</h1>
                 <h2>Your personal data is stored according to the Privacy Policy</h2>
@@ -32,7 +34,7 @@ export const Forms = (props) => {
             <Field name="name" validate={required}>
               {({ input, meta }) => (
                 <div className='input-box'>
-                  <input {...input} type="text" placeholder="Your name" />
+                  <input {...input} type="text" placeholder="Your name" className={meta.error && meta.touched ? 'error' : null}/>
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
@@ -40,7 +42,7 @@ export const Forms = (props) => {
             <Field name="email" validate={required}>
               {({ input, meta }) => (
                 <div className='input-box'>
-                  <input {...input} type="text" placeholder="Email" />
+                  <input {...input} type="text" placeholder="Email" className={meta.error && meta.touched ? 'error' : null}/>
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
@@ -51,7 +53,7 @@ export const Forms = (props) => {
             >
               {({ input, meta }) => (
                 <div className='input-box'>
-                  <input {...input} type="text" placeholder="Phone" />
+                  <input {...input} type="text" placeholder="Phone" className={meta.error && meta.touched ? 'error' : null}/>
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
@@ -60,7 +62,7 @@ export const Forms = (props) => {
             Select your position
             </div>
                 {props.position.map(u=>
-                    <label>
+                    <label >
                   <Field
                     name="position"
                     component="input"
@@ -68,9 +70,9 @@ export const Forms = (props) => {
                     value={u.name}
                   />
                   {u.name}
-                </label>
+                </label >
                     )}
-            <label class="custom-file-upload">
+            <label className="custom-file-upload">
             <Field
               name="photo"
               component="input"
@@ -84,6 +86,7 @@ export const Forms = (props) => {
               <button className={pristine ? 'close': 'open'} type="submit" disabled={submitting || pristine}>
               Sign up
               </button>
+              {props.error}    
             </div>
           </form>
         )}

@@ -24,28 +24,28 @@ export const Header = () => {
                     <img src={Logo} alt='logo' className='logo' />
                     <img src={Burger} alt='burger' onClick={() => { setOpenMenu(!openMenu) }} className='burger' />
                 </div>
-                {openMenu && <div className='header-menu'>
-                    <div className='menu'>
+                {openMenu && <div className='header-menu' onClick={() => { setOpenMenu(!openMenu) }}>
+                    <div className='menu' >
                         <div >
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>About me</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Relationship</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Users</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Sign up</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Terms and Conditions</a>
+                            <a href="#form">About me</a>
+                            <a href="#form">Relationship</a>
+                            <a href="#form">Users</a>
+                            <a href="#form" >Sign up</a>
+                            <a href="#form" >Terms and Conditions</a>
                         </div>
                         <div>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>How it works</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Partnership</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Help</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Level testimonial</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Contact us</a>
+                            <a href="#form" >How it works</a>
+                            <a href="#form" >Partnership</a>
+                            <a href="#form" >Help</a>
+                            <a href="#form" >Level testimonial</a>
+                            <a href="#form" >Contact us</a>
                         </div>
                         <div>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Articles</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Our news</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Testimonials</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Licenses</a>
-                            <a href="#form" onClick={() => { setOpenMenu(!openMenu) }}>Privacy Policy</a>
+                            <a href="#form" >Articles</a>
+                            <a href="#form" >Our news</a>
+                            <a href="#form" >Testimonials</a>
+                            <a href="#form" >Licenses</a>
+                            <a href="#form" >Privacy Policy</a>
                         </div>
                     </div>
                 </div>}

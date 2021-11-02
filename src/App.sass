@@ -28,9 +28,13 @@
   .App-paws
     background-color:  #F8F8F8;
     width: 100%;
-    img
+    .PawsL
       padding-left: 54%;
       width: 35%;
+    .PawsM
+      display: none;
+    .PawsS
+      display: none;
   .App-footer
     display: flex;
     flex-direction: column;
@@ -38,3 +42,23 @@
     justify-content: center;
     background-color: #ffffff;
     width: 100%;
+
+@media (max-width: 970px)
+  .App
+    .App-paws
+      .PawsL
+        display: none;
+      .PawsM
+        display: block;
+        padding-left: 39%;
+        margin-top: -10px;
+@media (max-width: 760px)
+  .App
+    .App-paws
+      .PawsM
+        display: none;
+      .PawsS
+        display: block;
+        padding-left: 9%;
+        margin-top: 12px;
+

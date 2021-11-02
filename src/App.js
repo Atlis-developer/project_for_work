@@ -5,7 +5,9 @@ import { ContentBig } from './components/Content/ContentBig';
 import { ContentSmall } from './components/Content/ContentSmall';
 import FormContainer  from './components/Form/FormContainer';
 import UsersContainer from './components/Users/UsersContainer';
-import Paws from './images/Footprint-972x177.svg'
+import PawsL from './images/Footprint-972x177.svg'
+import PawsM from './images/Footprint-467x177.svg'
+import PawsS from './images/Footprint-328x124.svg'
 import { Footer } from './components/Footer/Footer';
 
 export const App = () => {
@@ -23,7 +25,9 @@ export const App = () => {
       <FormContainer/>
       </div>
       <div className='App-paws'>
-        <img src={Paws}/>
+        <img src={PawsL} className='PawsL'/>
+        <img src={PawsM} className='PawsM'/>
+        <img src={PawsS} className='PawsS'/>
       </div>
       <div className='App-footer'>
       <Footer/>
