@@ -28,20 +28,16 @@ export const usersAPI = {
         formData.append('phone', user.phone);
         formData.append('photo', user.photo);
         debugger
-        axios({
-            method: "post",
-            url: "https://frontend-test-assignment-api.abz.agency/api/v1/users'",
-            data: formData,
-            headers: { "Token": token },
-          })
-            .then(function (response) {
-              //handle success
-              console.log(response);
+        return axios.post(`https://frontend-test-assignment-api.abz.agency/api/v1/users`, 
+        {
+            headers: {
+                'Token': token
+            },
+            body: formData  
+        }).then(response => {
+            debugger
+                return response
             })
-            .catch(function (response) {
-              //handle error
-              console.log(response);
-            });
     },
 }
 
