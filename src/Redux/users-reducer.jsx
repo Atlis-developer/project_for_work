@@ -77,22 +77,22 @@ export const addUsers = (numberPage, pageSize) => async (dispatch) =>{
 }
 
 export const setUserThunk = (user) => async (dispatch) =>{
+    let name = user.name;
+    let email =  user.email;
+    let phone = user.phone;
+    let position_id = user.position;
+    let photo = user.photo;
     let response2 = await usersAPI.getToken();
-    let response = await usersAPI.setUser(user, response2.data.token);
-    // if(response.data.success == true){
-    //     dispatch(addModal(true));
-    //     dispatch(setUsers(response.data.users));
-    //     dispatch(totalPage(response.data.total_pages));
-    // }else if(response.data.success == false){
-    //     dispatch(addError(response.data.message));
-    // }   
+    let result = await usersAPI.setUser(name, email, phone, position_id, photo, response2.data.token);
+    console.log(result)
+    if(result.success == true){
+         dispatch(addModal(true));
+     }else if(result.success == false){
+         dispatch(addError(result.message));
+     }   
 }
 
 export const changeModal = (modal) => (dispatch) =>{
     dispatch(addModal(modal));
 }
 
-/*"eyJpdiI6Im91bDVjMUxVUk1kNkM5dXpZS05jclE9PSIsInZhbHVlIjoiVVFjbGdNS0Q1MXFVZHZ2aUFqVGZYbDVac3hxeCswQnpJaE51OTdKWU9LYWt6bHlNdEZubERWVG9pc3dXb1JLXC9JSWNsQlp6eUZZNTlHbFdVZkY5RkpBPT0iLCJtYWMiOiIyMGNlMDk0MTY3MjM1MzQwNGUyMjk4ODk3NzM5ODlhZDEwMWEyMjdhNTFjMDQ5NjVmMmFhNTBlNzRmMDU5NGU5In0="*/
-/*"eyJpdiI6InRQaGtCSGV2VzkwYkxFRVZjSk44bGc9PSIsInZhbHVlIjoiRlBpMVhJZ0VsaFFYTWVMWVFTN1J2V1daZ1VROWJJMGlSM2swTzhzenRrNldocXA1dDB0NVJsa1B3WFFlVnRTZnlHNktqVFo1R0xqRmFxeEozckwxR0E9PSIsIm1hYyI6IjY2NDc0MWNlNTVkZGZlMzVkZTE5OTkyMWRiMGRkN2U5NjQzNDAxNWE3MTU3NmNmYWY0ODNkOGU5OTUwNWI0OTQifQ=="*/
-
-/*eyJpdiI6InFMVmExZkRqOERVN3NaK2x6YVp4aEE9PSIsInZhbHVlIjoibm1oZ2RjT2tRc0kyNk9vdEc3NkdZaFBUSE1UQUp5bzNYd3FtUlRjeWJFZ3dBZ0VjQ3JzbFg2ZG9JMWtPNkFIQ0NTNGlDYU9JaDFScEJRV0JVUXpFRnc9PSIsIm1hYyI6IjI1MDAyMjJhNmMxNTVhMTYxZDU3NjViN2QxNGE2OTgyMzdjZjMxOTYxYTYwMDYwMGNkZjJhODlmYzlkYzYwZWMifQ*/

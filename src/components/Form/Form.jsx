@@ -6,7 +6,6 @@ import { Modal } from '../Modal/Modal';
 
 export const Forms = (props) => {
 
-  
 
     const onSubmit =(values) => {
         let needId = props.position.find(i=> i.name == values.position);
@@ -30,7 +29,7 @@ export const Forms = (props) => {
             <Form
         onSubmit={onSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} enctype="multipart/form-data">
             <Field name="name" validate={required}>
               {({ input, meta }) => (
                 <div className='input-box'>
@@ -89,9 +88,9 @@ export const Forms = (props) => {
               {props.error}    
             </div>
           </form>
+          
         )}
       />
-      
             </div>
         </div>
     )

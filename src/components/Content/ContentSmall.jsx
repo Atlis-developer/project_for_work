@@ -5,6 +5,7 @@ import PeopleM from '../../images/Image-328x287.svg'
 import PeopleS from '../../images/Image-296x260.svg'
 
 export const ContentSmall = () => {
+    
     return (
         <div className='content-small'>
             <div className='content-small-img'>
@@ -27,6 +28,7 @@ export const ContentSmall = () => {
                         Sign up
                     </button>
                 </a>
+                
             </div>
         </div>
     )

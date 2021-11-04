@@ -12,64 +12,43 @@ export const usersAPI = {
                 return response
             })
     },
-    getToken(){
+    getToken() {
         return instanse.get(`token`).
             then(response => {
 
                 return response
             })
     },
-    setUser(user, token){
-        
+    setUser(name, email, phone, position_id, photo, token) {
+
         const formData = new FormData();
-        formData.append('position_id', user.position);
-        formData.append('name', user.name);
-        formData.append('email', user.email);
-        formData.append('phone', user.phone);
-        formData.append('photo', user.photo);
-        debugger
-        return axios.post(`https://frontend-test-assignment-api.abz.agency/api/v1/users`, 
-        {
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('position_id', position_id);
+        formData.append('photo', photo);
+ 
+        return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
+            method: 'POST',
+            body: formData,
             headers: {
-                'Token': token
+                'Content-Type': 'multipart/form-data;',
+                "Token": token
             },
-            body: formData  
-        }).then(response => {
-            debugger
-                return response
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                return result
             })
-    },
+
+    }
 }
 
 export const formAPI = {
-    getPosition(){
+    getPosition() {
         return instanse.get(`positions`).
             then(response => {
                 return response
             })
     },
 }
-/*const formData = new FormData();
-        formData.append('position_id', user.position);
-        formData.append('name', user.name);
-        formData.append('email', user.email);
-        formData.append('phone', user.phone);
-        formData.append('photo', user.photo)
-        fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token,}})
-        .then(function(response) { return response.json() }) 
-        .then(function(data) { console.log(data)})*/
-
-/*```js var formData = new FormData(); 
-// file from input type='file' var fileField = document.querySelector('input[type="file"]'); 
-formData.append('position_id', 2); 
-formData.append('name', 'Jhon'); 
-formData.append('email', 'Jhon@gmail.com'); 
-formData.append('phone', '+380955388485'); 
-formData.append('photo', fileField.files[0]);
-
-fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token, }, }) 
-.then(function(response) { return response.json(); }) 
-.then(function(data) { console.log(data); 
-if(data.success) { // process success response } 
-else { // proccess server errors } }) 
-.catch(function(error) { // proccess network errors })```*/
